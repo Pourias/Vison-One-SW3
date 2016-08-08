@@ -6,7 +6,7 @@
 import UIKit
 import AVFoundation
 import SwiftyJSON
-
+//import ColorNames
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
    
@@ -84,9 +84,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
        if UIImagePickerController.availableCaptureModes(for: .rear) == nil { return } //no Camera
         //AVCaptureSessionPresetPhoto //Original //AVCaptureSessionPresetLow //AVCaptureSessionPresetMedium
         //AVCaptureSessionPresetHigh //AVCaptureSessionPreset352x288 //AVCaptureSessionPreset640x480
-        //AVCaptureSessionPresetiFrame960x540 //AVCaptureSessionPreset1280x720
+        //AVCaptureSessionPresetiFrame960x540 //AVCaptureSessionPresetiFrame1280x720 //AVCaptureSessionPreset1920x1080
         captureSession = AVCaptureSession()
-        captureSession!.sessionPreset = AVCaptureSessionPreset640x480
+        captureSession!.sessionPreset = AVCaptureSessionPreset1920x1080
         let backCamera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) //Select camer, defaul=rear-camera
         do {
             let input = try AVCaptureDeviceInput(device: backCamera)
@@ -99,6 +99,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                     previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
                     //previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+                    //previewLayer!.frame=self.view.bounds;
                     previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait //LandscapeLeft
                     previewView.layer.addSublayer(previewLayer!)
                     captureSession!.startRunning()
@@ -106,6 +107,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         } catch let error as NSError {  print(error)   }
     }
+    /* override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+       // previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.landscapeLeft
+        } else {
+            print("Portrait")
+            previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.portrait //LandscapeLeft
+        }
+    } */
+    
     
     //* * * Actions * * *
     @IBAction func getFileFromLib(_ sender: UIButton) {
@@ -254,19 +267,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             self.takePictureButton.isEnabled = false
             self.busyWaiting = true
             self.zoomImage.isHidden = true
+            //https://www.reddit.com/r/iOSProgramming/comments/3cxhvk/disable_excessive_shutter_sound/?st=irjhcrah&sh=af86f35f
              if let videoConnection = stillImageOutput!.connection(withMediaType: AVMediaTypeVideo) {
                 videoConnection.videoOrientation = AVCaptureVideoOrientation.portrait
-                //stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {(sampleBuffer, error) in
+                //Sound change here
                 stillImageOutput?.captureStillImageAsynchronously(from: videoConnection, completionHandler: {(sampleBuffer, error) in
+                //Sound change here
                     if (sampleBuffer != nil) {
                         let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
-            //let dataProvider = CGDataProvider(data: imageData!)
                         let dataProvider = CGDataProvider(data: imageData!)
-                        
-            //var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
-            //let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
                         let cgImageRef = CGImage(jpegDataProviderSource: dataProvider!, decode: nil, shouldInterpolate: true, intent: CGColorRenderingIntent.defaultIntent)
-                        
                         //UIImageOrientationUp,            // default orientation
                         //UIImageOrientationDown,          // 180 deg rotation
                         //UIImageOrientationLeft,          // 90 deg CCW
@@ -293,6 +303,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    var start_t : NSDate = NSDate()
+    var end_t : NSDate = NSDate()
+    
     //* * * Google Vision API request  * * *
     func visionAPIrequest(_ myimage: UIImage) {
         let binaryImageData = self.base64EncodeImage(myimage)
@@ -303,12 +316,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imgW = image.size.width
         
         var imagedata = UIImagePNGRepresentation(image)
-        
+        print(imagedata?.count)
+        print(image.size)
         // Resize the image if it exceeds the 2MB API limit
         if (imagedata?.count > 2097152) {
             let oldSize: CGSize = image.size
             let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
             imagedata = resizeImage(newSize, image: image)
+            print("---resize----")
+            print(image.size)
         }
         
         return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
@@ -405,6 +421,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let tempJson = try! JSONSerialization.data(withJSONObject: jsonRequest, options: [])
         request.httpBody = tempJson
         
+        self.start_t = NSDate()
         // Run the request on a background thread
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
         //DispatchQueue.global(qos: DispatchQoS.default).async(execute: {
@@ -415,32 +432,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func runRequestOnBackgroundThread(_ request: NSMutableURLRequest) {
         let task = URLSession.shared.dataTask(with: request as URLRequest) {data,response, err in
             if err != nil { print(err!.localizedDescription) }
-            print("................response.......................")
-            print(response)
+            //print("................response.......................")
+            //print(response)
             let localData = data
             self.analyzeResults(localData!)
         }
         task.resume()
     }
-    func runRequestOnBackgroundThread_old(_ request: NSMutableURLRequest) {
-        let session = URLSession.shared
-        // run the request
-        let nonMutableRequest = URLRequest(url: request.url!)
-        let task = session.dataTask(with: nonMutableRequest){data,response, err in
-            let localData = data
-            self.analyzeResults(localData!)
-        }
-//        let task = session.dataTask(with: request, completionHandler: {data, response, error -> Void in
-//            let localData = data
-//            self.analyzeResults(localData)
-//        })
-        task.resume()
-    }
-
-    
     func analyzeResults(_ dataToParse: Data) {
         // Update UI on the main thread
         DispatchQueue.main.async(execute: {
+            //measure respond time
+            self.end_t = NSDate()
+            let timeInterval: Double = self.end_t.timeIntervalSince(self.start_t as Date)
+            print("Time to evaluate problem: \(timeInterval) seconds")
+            
             //self.takePictureButton.enabled = true
             //self.busyWaiting = false
             //self.zoomImage.hidden = false
@@ -560,13 +566,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             let redColor = CGFloat(NumberFormatter().number(from: myColor["color"]["red"].stringValue)!)
                             let greenColor = CGFloat(NumberFormatter().number(from: myColor["color"]["green"].stringValue)!)
                             let blueColor = CGFloat(NumberFormatter().number(from: myColor["color"]["blue"].stringValue)!)
-                            if scoreValue > 0.1 {
-                                print ("-----")
-                                print ("red " + myColor["color"]["red"].stringValue)
-                                print ("green " + myColor["color"]["green"].stringValue)
-                                print ("blue " + myColor["color"]["blue"].stringValue)
-                                let label = self.rgbToColorName(redColor, greenColor: greenColor, blueColor: blueColor)
-                                labels.append(label)
+                            if scoreValue > 0.3 {
+                                //print ("++++++++++++++++++++++++++++++++++++")
+                                //print ("red " + myColor["color"]["red"].stringValue)
+                                //print ("green " + myColor["color"]["green"].stringValue)
+                                //print ("blue " + myColor["color"]["blue"].stringValue)
+                                let colorClass = ColorNames()
+                                let colorName = colorClass.rgb2name(red: Float(redColor), green: Float(greenColor), blue: Float(blueColor))
+                                //print(colorName)
+                                labels.append(colorName)
                             }
                         }
                     }
@@ -710,15 +718,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     //* * * Delay function * * *
-   // func delay(delay:Double, closure:()->()) {
-   //     DispatchQueue.main.asyncAfter(
-   //         deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
-   // }
-    //func delay1(delay:Double, closure:()->()) {
-    //    DispatchQueue.main.after(
-    //        when: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
-    //}
-    
     func delay(_ delay: TimeInterval, block: ()->()) {
         let time = DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
         DispatchQueue.main.asyncAfter(deadline: time, execute: block)
@@ -746,84 +745,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     //* * * color fucntions * * *
     func rgbToColorName(_ redColor : CGFloat, greenColor : CGFloat, blueColor : CGFloat) -> String {
-   /*     let colorClass = ColorNames()
-        let colorNames = colorClass.nameArray
-
-        
-        let rHex = String(format:"%02X", Int(redColor))
-        let gHex = String(format:"%02X", Int(greenColor))
-        let bHex = String(format:"%02X", Int(blueColor))
-        let colorHex = "002E10" //rHex+gHex+bHex
-        let myColorDec = UInt64(strtoul(colorHex, nil, 16))
-        
-        var colorOutput : String = ""
-        for index in 0..<colorNames.count {
-            let colorNameDec = UInt64(strtoul(colorNames[index][0], nil, 16))
-            print ("__________________________")
-            print(colorNameDec)
-            print(myColorDec)
-            
-            if colorNameDec > myColorDec {
-                break
-            } else {
-                colorOutput = colorNames[index][1]
-            }
-            
-            //print (colorNames[index])
-            //print (colorNames[index][0])
-            /*
-            let myHex = colorNames[index][0]
-            let firstChar = myHex[myHex.startIndex.advancedBy(0)]
-            let secondChar = myHex[myHex.startIndex.advancedBy(1)]
-            let firstHext = "\(myHex[myHex.startIndex.advancedBy(0)])\(myHex[myHex.startIndex.advancedBy(1)])"
-            let secondHex = "\(myHex[myHex.startIndex.advancedBy(2)])\(myHex[myHex.startIndex.advancedBy(3)])"
-            let thirdHex  = "\(myHex[myHex.startIndex.advancedBy(4)])\(myHex[myHex.startIndex.advancedBy(5)])"
-            let firstDec = UInt8(strtoul(firstHext, nil, 16))
-            let secondDec = UInt8(strtoul(secondHex, nil, 16))
-            let thirdDec = UInt8(strtoul(thirdHex, nil, 16))
-            */
-            
-            
-           // print ("--r")
-           // print (firstDec)
-           // print (UInt8(redColor))
-           // print ("--g")
-           // print (secondDec)
-           // print (UInt8(greenColor))
-           // print ("--b")
-           // print (thirdDec)
-           // print (UInt8(blueColor))
-           // print("--")
-            
-           /* if UInt8(redColor) > firstDec {
-                print("b1")
-                continue
-            } else {
-                if UInt8(greenColor) > secondDec {
-                    print("b2")
-                    continue
-                } else {
-                    if UInt8(blueColor) > thirdDec {
-                        print("b3")
-                        continue
-                    } else {
-                         colorOutput = colorNames[index][1]
-                        print (colorNames[index][0])
-                        print (colorNames[index][1])
-                    }
-                }
-            } */
-            
-        }
-        print("--")
-        print(redColor)
-        print(greenColor)
-        print(blueColor)
-        
-        print(colorOutput)
-        */
-        
-      return "aaa" //colorOutput
+        let colorClass = ColorNames()
+        let colorName = colorClass.rgb2name(red: Float(redColor), green: Float(greenColor), blue: Float(blueColor))
+      return colorName
         
     }
     

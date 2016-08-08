@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8D410FAC73FBCFA782C3C107 /* Pods_Vision_OneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FB6DE0965DD68595966DD3 /* Pods_Vision_OneTests.framework */; };
+		965D3FDF1D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
+		965D3FE01D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
+		965D3FE11D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
 		96FC0B3B1D52560800A905E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC0B3A1D52560800A905E9 /* AppDelegate.swift */; };
 		96FC0B431D52560800A905E9 /* Vision_One.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 96FC0B411D52560800A905E9 /* Vision_One.xcdatamodeld */; };
 		96FC0B451D52560800A905E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96FC0B441D52560800A905E9 /* Assets.xcassets */; };
@@ -49,6 +52,7 @@
 		57CF4DE437AC682713D1D6CB /* Pods-Vision OneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vision OneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vision OneTests/Pods-Vision OneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58FB6DE0965DD68595966DD3 /* Pods_Vision_OneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vision_OneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8FCE44AD297B9E2812E851 /* Pods-Vision OneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vision OneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vision OneUITests/Pods-Vision OneUITests.release.xcconfig"; sourceTree = "<group>"; };
+		965D3FDE1D5447C200A8C823 /* ColorNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorNames.swift; sourceTree = "<group>"; };
 		96FC0B371D52560800A905E9 /* Vision One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vision One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FC0B3A1D52560800A905E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96FC0B421D52560800A905E9 /* Vision_One.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vision_One.xcdatamodel; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		96FC0B391D52560800A905E9 /* Vision One */ = {
 			isa = PBXGroup;
 			children = (
+				965D3FDE1D5447C200A8C823 /* ColorNames.swift */,
 				96FC0B3A1D52560800A905E9 /* AppDelegate.swift */,
 				96FC0B6F1D52572A00A905E9 /* ViewController.swift */,
 				96FC0B6B1D52571B00A905E9 /* Main.storyboard */,
@@ -444,6 +449,7 @@
 			files = (
 				96FC0B701D52572A00A905E9 /* ViewController.swift in Sources */,
 				96FC0B431D52560800A905E9 /* Vision_One.xcdatamodeld in Sources */,
+				965D3FDF1D5447C200A8C823 /* ColorNames.swift in Sources */,
 				96FC0B3B1D52560800A905E9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965D3FE01D5447C200A8C823 /* ColorNames.swift in Sources */,
 				96FC0B711D52572A00A905E9 /* ViewController.swift in Sources */,
 				96FC0B531D52560800A905E9 /* Vision_OneTests.swift in Sources */,
 			);
@@ -461,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				965D3FE11D5447C200A8C823 /* ColorNames.swift in Sources */,
 				96FC0B721D52572A00A905E9 /* ViewController.swift in Sources */,
 				96FC0B5E1D52560800A905E9 /* Vision_OneUITests.swift in Sources */,
 			);

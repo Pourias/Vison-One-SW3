@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8421C3B7DBA59148E1E7C9C93DD5716EE8EFD383",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8421C3B7DBA59148E1E7C9C93DD5716EE8EFD383" : 9223372036854775807,
+    "D00FEE06D20BBF4F2593E07A68C7FADD5E904D26" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C8446CA9-BE0B-4A17-BCE2-A77126D5D3C7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8421C3B7DBA59148E1E7C9C93DD5716EE8EFD383" : "Vision%20One\/",
+    "D00FEE06D20BBF4F2593E07A68C7FADD5E904D26" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Vision One",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Vision One.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Pourias\/Vison-One-SW3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8421C3B7DBA59148E1E7C9C93DD5716EE8EFD383"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Pourias\/Vison-One-SW3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D00FEE06D20BBF4F2593E07A68C7FADD5E904D26"
+    }
+  ]
+}

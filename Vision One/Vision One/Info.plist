@@ -24,6 +24,8 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Access requested to camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access request to photo library</string>
 	<key>UILaunchStoryboardName</key>
