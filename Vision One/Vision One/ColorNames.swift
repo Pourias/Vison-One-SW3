@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 
 class ColorNames {
-    
     var trainSet: Array<NSArray> = [[0, 0, 0, "Black"],
                                     [0, 0, 128, "Navy"],
                                     [0, 0, 139, "DarkBlue"],
@@ -160,8 +159,12 @@ class ColorNames {
         for x in 0..<length {
             distance = distance + (pow(((instance1[x] as! Float) - (instance2[x] as! Float) ), 2))
         }
+       // print(instance1)
+       // print(instance2)
+       // print(sqrt(distance))
         return sqrt(distance)
     }
+    
     
     func getNeighbors(trainingSet: Array<NSArray>, testInstance: NSArray) -> NSArray {
         var distances : Array<NSArray> = []
@@ -171,8 +174,12 @@ class ColorNames {
             distances.append([trainingSet[x], dist])
         }
         let sortedArray  = distances.sorted { ($0[1] as! Float) < ($1[1] as! Float) }
+        //print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        //print(testInstance)
+        // print(sortedArray)
         return sortedArray[0]
     }
+
     
     func rgb2name(red: Float, green: Float, blue: Float)->String{
         let testInstance: NSArray = [red, green, blue]

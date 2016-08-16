@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8D410FAC73FBCFA782C3C107 /* Pods_Vision_OneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58FB6DE0965DD68595966DD3 /* Pods_Vision_OneTests.framework */; };
+		96354D9D1D62CF810084909C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96354D9C1D62CF810084909C /* GoogleService-Info.plist */; };
+		96354D9E1D62CF810084909C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96354D9C1D62CF810084909C /* GoogleService-Info.plist */; };
+		96354D9F1D62CF810084909C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96354D9C1D62CF810084909C /* GoogleService-Info.plist */; };
 		965D3FDF1D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
 		965D3FE01D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
 		965D3FE11D5447C200A8C823 /* ColorNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965D3FDE1D5447C200A8C823 /* ColorNames.swift */; };
@@ -52,6 +55,10 @@
 		57CF4DE437AC682713D1D6CB /* Pods-Vision OneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vision OneTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vision OneTests/Pods-Vision OneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58FB6DE0965DD68595966DD3 /* Pods_Vision_OneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vision_OneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C8FCE44AD297B9E2812E851 /* Pods-Vision OneUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vision OneUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vision OneUITests/Pods-Vision OneUITests.release.xcconfig"; sourceTree = "<group>"; };
+		96354D9C1D62CF810084909C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		96354DA01D62D0E50084909C /* Vision One-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vision One-Bridging-Header.h"; sourceTree = "<group>"; };
+		96354DA11D62D0E50084909C /* Vision OneTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vision OneTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		96354DA21D62D0E50084909C /* Vision OneUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vision OneUITests-Bridging-Header.h"; sourceTree = "<group>"; };
 		965D3FDE1D5447C200A8C823 /* ColorNames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorNames.swift; sourceTree = "<group>"; };
 		96FC0B371D52560800A905E9 /* Vision One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Vision One.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96FC0B3A1D52560800A905E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +109,7 @@
 		96FC0B2E1D52560800A905E9 = {
 			isa = PBXGroup;
 			children = (
+				96354D9C1D62CF810084909C /* GoogleService-Info.plist */,
 				96FC0B391D52560800A905E9 /* Vision One */,
 				96FC0B511D52560800A905E9 /* Vision OneTests */,
 				96FC0B5C1D52560800A905E9 /* Vision OneUITests */,
@@ -132,6 +140,9 @@
 				96FC0B461D52560800A905E9 /* LaunchScreen.storyboard */,
 				96FC0B491D52560800A905E9 /* Info.plist */,
 				96FC0B411D52560800A905E9 /* Vision_One.xcdatamodeld */,
+				96354DA01D62D0E50084909C /* Vision One-Bridging-Header.h */,
+				96354DA11D62D0E50084909C /* Vision OneTests-Bridging-Header.h */,
+				96354DA21D62D0E50084909C /* Vision OneUITests-Bridging-Header.h */,
 			);
 			path = "Vision One";
 			sourceTree = "<group>";
@@ -296,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FC0B6C1D52571B00A905E9 /* Main.storyboard in Resources */,
+				96354D9D1D62CF810084909C /* GoogleService-Info.plist in Resources */,
 				96FC0B481D52560800A905E9 /* LaunchScreen.storyboard in Resources */,
 				96FC0B451D52560800A905E9 /* Assets.xcassets in Resources */,
 			);
@@ -306,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FC0B6D1D52571B00A905E9 /* Main.storyboard in Resources */,
+				96354D9E1D62CF810084909C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96FC0B6E1D52571B00A905E9 /* Main.storyboard in Resources */,
+				96354D9F1D62CF810084909C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,10 +608,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision One/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-One";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision One-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -608,10 +625,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision One/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-One";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision One-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
@@ -622,10 +641,13 @@
 			baseConfigurationReference = 57CF4DE437AC682713D1D6CB /* Pods-Vision OneTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision OneTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-OneTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision OneTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vision One.app/Vision One";
 			};
@@ -636,10 +658,12 @@
 			baseConfigurationReference = FDA8B23E8B8653EC1D23EAEE /* Pods-Vision OneTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision OneTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-OneTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision OneTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Vision One.app/Vision One";
@@ -650,10 +674,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4484255A893DC9D537E7287F /* Pods-Vision OneUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision OneUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-OneUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision OneUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Vision One";
 			};
@@ -663,10 +690,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8C8FCE44AD297B9E2812E851 /* Pods-Vision OneUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Vision OneUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.helpereye.Vision-OneUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Vision One/Vision OneUITests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Vision One";

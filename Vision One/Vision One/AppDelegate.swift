@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+//import Google
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // [START tracker_swift]
+        // Configure tracker from GoogleService-Info.plist.
+        var configureError:NSError?
+        GGLContext.sharedInstance().configureWithError(&configureError)
+        assert(configureError == nil, "Error configuring Google services: \(configureError)")
+        
+        // Optional: configure GAI options.
+        let gai = GAI.sharedInstance()
+        gai?.trackUncaughtExceptions = true  // report uncaught exceptions
+        gai?.logger.logLevel = GAILogLevel.verbose  // remove before app release
+        // [END tracker_swift]
+        
         return true
     }
 

@@ -9,7 +9,7 @@ target 'Vision One' do
   # added by Pouria
   #pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
   pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git', :branch => ‘swift3’ 
-
+  pod 'Google/Analytics'
 
 
   target 'Vision OneTests' do

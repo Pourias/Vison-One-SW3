@@ -6,7 +6,8 @@
 import UIKit
 import AVFoundation
 import SwiftyJSON
-//import ColorNames
+//import Google
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
    
@@ -28,6 +29,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var logoButton: UIBarButtonItem!
     
     let API_KEY = "AIzaSyA9ODXoXFNnFEb7vN-oZNRHpR30dMl4H_Q"  //my Google API key
+    let tracker = GAI.sharedInstance().defaultTracker
     let picker = UIImagePickerController()
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
@@ -70,7 +72,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         //self.view.addGestureRecognizer(swipeDown)
         
         picker.delegate = self  //Delegate is used to segaue back to its self
-        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {welcomeIntroCamera()}else{welcomeIntroNoCamera()}
+        //if UIImagePickerController.availableCaptureModes(for: .rear) != nil {welcomeIntroCamera()}else{welcomeIntroNoCamera()}
+        welcomeIntroCamera()
     }
     override func viewDidAppear(_ animated: Bool) {
         if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
@@ -81,6 +84,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        // The UA-XXXXX-Y tracker ID is loaded automatically from the GoogleService-Info.plist by the `GGLContext` in the AppDelegate.
+        // [START screen_view_hit_swift]\
+        tracker?.set(kGAIScreenName, value: "Screen One")
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker?.send(builder!.build() as [NSObject : AnyObject])
+        // [END screen_view_hit_swift]
+        
        if UIImagePickerController.availableCaptureModes(for: .rear) == nil { return } //no Camera
         //AVCaptureSessionPresetPhoto //Original //AVCaptureSessionPresetLow //AVCaptureSessionPresetMedium
         //AVCaptureSessionPresetHigh //AVCaptureSessionPreset352x288 //AVCaptureSessionPreset640x480
@@ -171,7 +183,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func stateChanged(_ modeChangeDirection: modeDirection) {
         hasAlreadyStarted = true // stops the welcome mesage text output
-        if modeChangeDirection == .right {
+        if modeChangeDirection == .left {
             if self.searchSetting == .location {
                 self.searchSetting = searchTypes.object
             } else {
@@ -623,9 +635,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     if numTexts > 0 {
                         for index in 0..<numTexts {
                             let mytext = textAnnotations[index]["description"].stringValue
-                            if mytext.range(of: "\n") != nil{
-                                //if mytext.range(of: "\n") != nil{
-                                    
+                             if mytext.range(of: "\n") != nil{
                                 labels.append(mytext)
                             }
                         }
@@ -663,12 +673,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             } else {
                 self.outputTextAndVoice("Bad/Wrong respond format", speechRate :0.40, textEnable : true)
             }
+            
+            //Send data to Google Analytics
+            //eventAnalytics (setCategory: String, setAction: String, setLabel: String, setValue: Int)
         })
     }
     
     
     //* * * Welcome messages * * *
-    func welcomeIntroNoCamera() {
+    /*func welcomeIntroNoCamera() {
         //self.takePictureButton.enabled = false
         //self.zoomImage.hidden = true
         self.myTextLabel.text = "Hello... "
@@ -692,26 +705,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             }
         }
         
-    }
+    } */
     func welcomeIntroCamera() {
-        //self.myTextLabel.text = "Hello... "
-        //self.outputTextAndVoice("Hello", speechRate :0.50, textEnable : false)
         self.delay(2) {
             if self.hasAlreadyStarted==false {
-                self.myTextLabel.text = "Point your phone in the direction that you would like to see..."
-                self.outputTextAndVoice("Point your phone in the direction that you would like to see", speechRate :0.47, textEnable : false)
-            }
-            self.delay(3.1) {
-                if self.hasAlreadyStarted==false {
-                    self.myTextLabel.text = "...and tap on the screen."
-                    self.outputTextAndVoice("and tap on the screen", speechRate :0.47, textEnable : false)
-                }
-                self.delay(2.2) {
-                    if self.hasAlreadyStarted==false {
-                        self.myTextLabel.text = "Swipe left and right for different options."
-                        self.outputTextAndVoice("Swipe left and right for different options.", speechRate :0.47, textEnable : false)
-                    }
-                }
+                let welcome_msg = "Point your phone in the direction that you would like to see and tap on the screen. Swipe left and right for different options."
+                self.myTextLabel.text = welcome_msg
+                self.outputTextAndVoice(welcome_msg, speechRate :0.47, textEnable : false)
             }
         }
     }
@@ -728,17 +728,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func outputTextAndVoice (_ myText : String, speechRate : Float = 0.50, textEnable : Bool = true) {
         //enum AVSpeechBoundary : Int { case Immediate    case Word  }
         let mySpeechStoper = AVSpeechBoundary.immediate
-        //synth.stopSpeaking(at: mySpeechStoper)
         synth.stopSpeaking(at: mySpeechStoper)
         if textEnable {  self.myTextLabel.text = myText }
-        var myUtterance = AVSpeechUtterance(string: "")
-        myUtterance = AVSpeechUtterance(string: myText)
-        //myUtterance.rate = speechRate + 0.1
-        myUtterance.rate = 0.49
-        myUtterance.voice = AVSpeechSynthesisVoice(language: "en-US") // IE
-        //synth.speak(myUtterance)
-        synth.speak(myUtterance)
-   
+        let myStringArr = myText.components(separatedBy: "\n")
+        
+        for txtLine in myStringArr {
+            let myUtterance = AVSpeechUtterance(string: txtLine)
+            //myUtterance.rate = speechRate + 0.1
+            myUtterance.rate = 0.49
+            myUtterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+            myUtterance.pitchMultiplier = 1.2
+            myUtterance.postUtteranceDelay = 0.0
+            myUtterance.preUtteranceDelay = 0.0
+            synth.speak(myUtterance)
+        }
     }
 
     
@@ -751,6 +754,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    
+    //* * * Google Analytic * * *
+    func eventAnalytics (setCategory: String, setAction: String, setLabel: String, setValue: Double){
+        print("eventAnalytics")
+        self.tracker?.send( GAIDictionaryBuilder.createEvent(withCategory: setCategory, action: setAction, label: setLabel, value: setValue).build() as [NSObject : AnyObject]!  )
+ 
+    }
+  
     
 }
 

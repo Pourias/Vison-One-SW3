@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/AppDelegate.swift"
-            timestampString = "491959000.736573"
+            timestampString = "493015639.915754"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "applicationDocumentsDirectory"
             landmarkType = "24">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
             landmarkName = "createRequest(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "468"
+            endingLineNumber = "468"
             landmarkName = "analyzeResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493052500.179839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "652"
-            endingLineNumber = "652"
+            startingLineNumber = "662"
+            endingLineNumber = "662"
             landmarkName = "analyzeResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -84,11 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
+            startingLineNumber = "478"
+            endingLineNumber = "478"
             landmarkName = "analyzeResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
+            startingLineNumber = "471"
+            endingLineNumber = "471"
             landmarkName = "analyzeResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
+            startingLineNumber = "591"
+            endingLineNumber = "591"
             landmarkName = "analyzeResults(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -132,11 +132,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492209947.127356"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
             landmarkName = "takePhoto()"
             landmarkType = "7">
          </BreakpointContent>
@@ -148,11 +148,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
             landmarkName = "takePhoto()"
             landmarkType = "7">
          </BreakpointContent>
@@ -164,11 +164,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "takePhoto()"
             landmarkType = "7">
          </BreakpointContent>
@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Vision One/ViewController.swift"
-            timestampString = "492210081.655946"
+            timestampString = "493017932.819001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "288"
+            endingLineNumber = "288"
             landmarkName = "takePhoto()"
             landmarkType = "7">
             <Locations>
@@ -219,6 +219,100 @@
                   offsetFromSymbolStart = "28">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vision One/ViewController.swift"
+            timestampString = "493015006.474495"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vision_One.ViewController.previewView.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIView&gt;"
+                  moduleName = "Vision One"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouria/PouriaDev/IOS/Swift3/Vision%20One/Vision%20One/Vision%20One/ViewController.swift"
+                  timestampString = "493015007.545092"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "27">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vision_One.ViewController.previewView.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIView&gt;"
+                  moduleName = "Vision One"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouria/PouriaDev/IOS/Swift3/Vision%20One/Vision%20One/Vision%20One/ViewController.swift"
+                  timestampString = "493015007.551125"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "42">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vision_One.ViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Vision_One.ViewController"
+                  moduleName = "Vision One"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouria/PouriaDev/IOS/Swift3/Vision%20One/Vision%20One/Vision%20One/ViewController.swift"
+                  timestampString = "493015007.553802"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "62">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Vision_One.ViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Vision_One.ViewController&gt;"
+                  moduleName = "Vision One"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pouria/PouriaDev/IOS/Swift3/Vision%20One/Vision%20One/Vision%20One/ViewController.swift"
+                  timestampString = "493015007.556611"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "27">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Vision One/ViewController.swift"
+            timestampString = "493017932.819001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
